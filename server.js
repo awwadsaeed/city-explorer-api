@@ -8,7 +8,7 @@ const weatherData = require('./data/weather.json');
 const PORT = process.env.PORT;
 
 server.listen(PORT, () => {
-
+console.log(PORT);
 })
 
 
@@ -40,7 +40,7 @@ server.get('/weather', (req, res) => {
         }
         
         res.send(forcastArr);
-    } catch(e) {
-        res.send('error');
+    } catch(error) {
+        res.status(500).send('Sorry, we dont have that data yet.');
     }
 })
